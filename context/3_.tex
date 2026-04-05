@@ -1,0 +1,124 @@
+\chapter{线性方程组}
+\section{消元法}
+\begin{definition}
+    线性方程组的初等变换:
+    \begin{itemize}
+        \item 交换两行
+        \item 将某行乘以一个非零常数
+        \item 将某行加上另一行的常数倍
+    \end{itemize}
+\end{definition}
+用初等变换把线性方程组化为阶梯型后，解的情况可以分为以下三种：
+\begin{itemize}
+    \item 无解：存在一个方程为 $0=d_{r+1}$ 的形式, 其中 $d_{r+1} \neq 0$
+    \item 唯一解：$r=n$
+    \item 无穷多解：$r<n$
+\end{itemize}
+其中$r$是阶梯型中非零行的数量，$n$是未知数的数量.
+\begin{theorem}
+    在齐次线性方程组
+    \begin{equation*}
+    \begin{cases}
+        a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = 0 \\
+        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = 0 \\
+        \vdots \\
+        a_{s1}x_1 + a_{s2}x_2 + \cdots + a_{sn}x_n = 0
+    \end{cases}
+    \end{equation*}
+    中，如果$s<n$，则方程组有非零解.
+\end{theorem}
+\begin{proof}
+    将方程组化为阶梯型，设非零行的数量为$r$，则$r \leq s < n$，从而$r<n$,有非零解.
+\end{proof}
+
+\section{线性相关性}
+\begin{definition}
+    向量$\alpha$称为向量组$\beta_1, \beta_2, \cdots, \beta_s$的线性组合,如果有数域$P$中的数$k_1, k_2, \cdots, k_s$使得
+    \begin{equation*}
+        \alpha = k_1\beta_1 + k_2\beta_2 + \cdots + k_s\beta_s,
+    \end{equation*}
+    也称$\alpha$可由$\beta_1, \beta_2, \cdots, \beta_s$\textbf{线性表出}.
+\end{definition}
+\begin{definition}
+    如果向量组$\alpha_1,\alpha_2,\cdots,\alpha_s$中每一个向量$\alpha_i(i=1,2,\cdots,s)$都可经向量组$\beta_1, \beta_2, \cdots, \beta_t$线性表出，则称$\alpha_1,\alpha_2,\cdots,\alpha_s$可由$\beta_1, \beta_2, \cdots, \beta_t$线性表出.如果两个向量组可以互相线性表出，则称它们\textbf{等价}.
+\end{definition}
+\begin{definition}
+    设$\alpha_1, \alpha_2, \cdots, \alpha_s$是$n$维向量，如果存在不全为零的数$k_1, k_2, \cdots, k_s$使得
+    \begin{equation*}
+        k_1\alpha_1 + k_2\alpha_2 + \cdots + k_s\alpha_s = 0
+    \end{equation*}
+    则称$\alpha_1, \alpha_2, \cdots, \alpha_s$\textbf{线性相关}，否则称\textbf{线性无关}.
+\end{definition}
+\begin{theorem}
+    如果向量组的一部分组线性相关,那么整个向量组线性相关;如果向量组线性无关,那么它的任一非空部分组线性无关.
+\end{theorem}
+\begin{theorem}
+    如果向量组线性无关,那么在每一个向量上添加若干分量后得到的向量组仍然线性无关.
+\end{theorem}
+\begin{theorem}
+    如果向量组$\alpha_1,\alpha_2,\cdots,\alpha_r$可由向量组$\beta_1, \beta_2, \cdots, \beta_s$线性表出,并且$r>s$,则$\alpha_1,\alpha_2,\cdots,\alpha_r$线性相关.
+\end{theorem}
+\begin{theorem}
+    如果向量组$\alpha_1,\alpha_2,\cdots,\alpha_r$可由向量组$\beta_1, \beta_2, \cdots, \beta_s$线性表出,并且$\alpha_1,\alpha_2,\cdots,\alpha_r$线性无关,则$r \leq s$.
+\end{theorem}
+\begin{theorem}
+    两个线性无关的等价向量组,必含有相同个数的向量.
+\end{theorem}
+\begin{definition}
+    一向量组的一个部分组称为该向量组的一个\textbf{极大线性无关组},如果该部分组线性无关,并且再添加任一向量后就线性相关,所得的部分组都线性相关.
+\end{definition}
+\begin{theorem}
+    一向量组的极大线性无关组都含有相同个数的向量,这个数称为该向量组的\textbf{秩}.
+\end{theorem}
+
+\section{矩阵的秩}
+\begin{definition}
+    矩阵最高阶非零子式的阶数称为矩阵的\textbf{秩}.
+\end{definition}
+\begin{theorem}
+    矩阵的秩等于其行秩,也等于其列秩.
+\end{theorem}
+\begin{theorem}
+    将矩阵经过初等行变换化为阶梯型后,非零行的数量就是矩阵的秩.并且主元所在列对应的原矩阵列向量，构成原矩阵列向量组的一个极大线性无关组.
+\end{theorem}
+
+\section{线性方程组有解判别定理}
+设线性方程组
+\begin{align}
+    \begin{cases}
+        a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1, \\
+        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2, \\
+        \multicolumn{1}{c}{\vdots} \\
+        a_{s1}x_1 + a_{s2}x_2 + \cdots + a_{sn}x_n = b_s.
+    \end{cases}
+\end{align}
+设向量\begin{equation*}
+    \alpha_1 =
+    \begin{pmatrix}
+    a_{11} \\ a_{21} \\ \vdots \\ a_{s1}
+    \end{pmatrix}, 
+    \alpha_2 = 
+    \begin{pmatrix}a_{12} \\ a_{22} \\ \vdots \\ a_{s2}
+    \end{pmatrix}, \cdots, 
+    \alpha_s = 
+    \begin{pmatrix}
+    a_{1s} \\ a_{2s} \\ \vdots \\ a_{ss}
+    \end{pmatrix}, \beta = 
+    \begin{pmatrix}
+    b_1 \\ b_2 \\ \vdots \\ b_s
+    \end{pmatrix},
+\end{equation*}则线性方程组(2.1)有解当且仅当$\beta$可由$\alpha_1, \alpha_2, \cdots, \alpha_s$线性表出.
+\begin{theorem}
+    线性方程组(2.1)有解当且仅当其系数矩阵与增广矩阵有相同的秩.
+\end{theorem}
+\begin{proof}
+    必要性:由(2.1)有解可知$\beta$可由$\alpha_1, \alpha_2, \cdots, \alpha_s$线性表出,于是$\alpha_1, \alpha_2, \cdots, \alpha_s$与$\alpha_1, \alpha_2, \cdots, \alpha_s, \beta$等价,所以它们的秩相同.\\
+    充分性:如果线性方程组(2.1)的系数矩阵与增广矩阵有相同的秩,设为$r$,并设$\alpha_1,\alpha_2,\cdots,\alpha_s$的一个极大线性无关组为$\alpha_1,\alpha_2,\cdots,\alpha_r$.由于$\alpha_1, \alpha_2, \cdots, \alpha_s, \beta$的秩为$r$,所以其中$r+1$个向量$\alpha_1,\alpha_2,\cdots,\alpha_r,\beta$可由极大线性无关组线性表出,因此线性相关,结合$\alpha_1,\alpha_2,\cdots,\alpha_r$线性无关可知,$\beta$可由$\alpha_1, \alpha_2, \cdots, \alpha_r$线性表出,也即$\beta$可由$\alpha_1, \alpha_2, \cdots, \alpha_s$线性表出,所以$\alpha_1, \alpha_2, \cdots, \alpha_s$与$\alpha_1, \alpha_2, \cdots, \alpha_s, \beta$等价,线性方程组(2.1)有解.
+\end{proof}
+
+\section{线性方程组解的结构}
+设齐次线性方程组
+\begin{equation*}
+    A\mathbf{x} = \mathbf{0}
+\end{equation*}
+其中$A$是$s \times n$矩阵, $\mathbf{x}$是$n$维列向量, $\mathbf{0}$是$s$维零向量.
