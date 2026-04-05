@@ -1,0 +1,143 @@
+\chapter{多项式}
+\section{整除与最大公因式}
+\begin{definition}
+    设 $f(x), g(x) \in P[x]$，如果存在 $h(x) \in P[x]$ 使得 $f(x) = h(x)g(x)$，则称 $g(x)$ 整除 $f(x)$，记作 $g(x) \mid f(x)$.
+    反之，如果 $g(x)$ 不整除 $f(x)$，则称 $g(x)$ 不整除 $f(x)$，记作 $g(x) \nmid f(x)$.
+\end{definition}
+\begin{definition}
+    设 $f(x), g(x) \in P[x]$，如果存在 $h(x) \in P[x]$ 使得 $f(x) = h(x)g(x)$，则称 $h(x)$ 是 $f(x)$ 的一个 \textbf{因式}.
+\end{definition}
+\begin{definition}
+    设 $f(x), g(x) \in P[x]$，如果存在$d(x)\in P[x]$ 使得 $d(x)\mid f(x)$ 且 $d(x)\mid g(x)$，则称 $d(x)$ 是 $f(x)$ 和 $g(x)$ 的一个 \textbf{公因式}.
+\end{definition}
+\begin{definition}
+    设 $f(x), g(x) \in P[x]$，如果存在 $d(x)\in P[x]$ 使得 $d(x)\mid f(x)$ 且 $d(x)\mid g(x)$，且对于任意 $h(x)\in P[x]$，如果 $h(x)\mid f(x)$ 且 $h(x)\mid g(x)$，则 $h(x)\mid d(x)$，则称 $d(x)$ 是 $f(x)$ 和 $g(x)$ 的一个 \textbf{最大公因式}.
+\end{definition}
+上述定义说明最大公因式是$f(x)$和$g(x)$的因式,并且$f(x)$和$g(x)$的任意公因式都是最大公因式的因式.因此,如果$f(x)$和$g(x)$的最大公因式是常数多项式,则称$f(x)$和$g(x)$是互素的.
+\begin{theorem}
+    \begin{enumerate}
+        \item 设$f(x), g(x),h(x)\in P[x]$，如果$f(x)\mid g(x)h(x)$,且$(f(x),g(x))=1$,则$f(x)\mid h(x)$.
+        \item 设$f(x), g(x),h(x)\in P[x]$，如果$f(x)\mid h(x),g(x)\mid h(x)$,且$(f(x),g(x))=1$,则$f(x)g(x)\mid h(x)$.
+    \end{enumerate}
+\end{theorem}
+
+\section{因式分解定理}
+\begin{definition}
+    数域$P$上次数$\geq 1$的多项式，如果它不能表示为两个次数较低的多项式的乘积，则称它为 $P$ 上的 \textbf{不可约多项式}.
+\end{definition}
+\begin{theorem}
+    如果$p(x)$是一个不可约多项式,且$p(x)\mid f(x)g(x)$,则$p(x)\mid f(x)$或$p(x)\mid g(x)$.
+\end{theorem}
+\begin{proof}
+    如果$p(x)\mid f(x)$,则定理成立.否则,由于$p(x)$是不可约多项式,所以$(p(x),f(x))=1$.由第一部分的结论可知,$p(x)\mid g(x)$.
+\end{proof}
+\begin{theorem}[因式分解定理]
+    数域$P$上每个次数$\geq 1$的多项式都可以唯一地分解为一些不可约多项式的乘积.
+\end{theorem}
+
+\section{重因式}
+\begin{definition}
+    设$f(x)\in P[x]$，如果存在一个不可约多项式$p(x)$使得$p^k(x)\mid f(x)$,但$p^{k+1}(x)\nmid f(x)$,则称$p(x)$是$f(x)$的一个\textbf{重因式}.
+\end{definition}
+\begin{definition}
+    如果不可约多项式$p(x)$是$f(x)$的$k$重因式$(k\geq 1)$,那么它是$f'(x)$的$k-1$重因式.
+\end{definition}
+\begin{theorem}
+    不可约多项式$p(x)$是$f(x)$的重因式当且仅当$p(x)\mid f(x)$且$p(x)\mid f'(x)$,即$p(x)$是$f(x)$和$f'(x)$的公因式.反之,$p(x)$不是$f(x)$的重因式当且仅当$(f(x),f'(x))=1$.
+\end{theorem}
+
+\section{复系数与实系数多项式的因式分解}
+\begin{theorem}[代数基本定理]
+    每个次数$\geq 1$的复系数多项式在复数域中有一根.
+\end{theorem}
+\begin{theorem}[复系数多项式因式分解定理]
+    每个次数$\geq 1$的复系数多项式都可以唯一地分解为一些一次因式的乘积.
+\end{theorem}
+\begin{theorem}[实系数多项式因式分解定理]
+    每个次数$\geq 1$的实系数多项式都可以唯一地分解为一些一次因式和一些二次不可约因式的乘积.
+\end{theorem}
+\begin{proof}
+    定理对一次多项式成立.假设定理对次数$<n$的多项式成立.设$f(x)$是$n$次实系数多项式.由代数基本定理,$f(x)$有一复根$\alpha$.如果$\alpha$是实数,那么
+    \begin{equation*}
+        f(x)=(x-\alpha)f_1(x),
+    \end{equation*}其中$f_1(x)$是次数为$n-1$的实系数多项式.由归纳假设,$f_1(x)$可以唯一地分解为一些一次因式和一些二次不可约因式的乘积.如果$\alpha$不是实数,那么$\overline{\alpha}$也是$f(x)$的复根.因此,
+    \begin{align*}
+        f(x)&=(x-\alpha)(x-\overline{\alpha})f_2(x)\\
+        &=[x^2-(\alpha+\overline{\alpha})x+\alpha\overline{\alpha}]f_2(x),
+    \end{align*}其中$f_2(x)$是次数为$n-2$的实系数多项式.由归纳假设,$f_2(x)$可以唯一地分解为一些一次因式和一些二次不可约因式的乘积.因此,$f(x)$可以唯一地分解为一些一次因式和一些二次不可约因式的乘积.
+\end{proof}
+
+\section{有理系数多项式}
+\begin{definition}
+    如果一个非零的整系数多项式$g(x)=b_nx^n+\cdots+b_1x+b_0$的系数$b_n,\ldots,b_0$的最大公因式是$1$，则称$g(x)$是一个 \textbf{本原多项式}.
+\end{definition}
+\begin{theorem}
+    任何一个非零的有理系数多项式$f(x)$都可以表示为一个有理数$r$与一个本原多项式的乘积,即
+    \begin{equation*}
+        f(x)=rg(x),
+    \end{equation*}
+    其中$r$是某个有理数,$g(x)$是本原多项式.
+\end{theorem}
+如果$f(x)=rg(x)=sh(x)$,其中$r,s$是有理数,$g(x),h(x)$是本原多项式,则$r=\pm s$,且$g(x)=\pm h(x)$.
+\begin{theorem}[高斯引理]
+    设$f(x),g(x)\in\mathbb{Z}[x]$，如果$f(x)$和$g(x)$都是本原多项式,则它们的积$f(x)g(x)$也是本原多项式.
+\end{theorem}
+\begin{proof}
+    设$f(x)=a_nx^n+\cdots+a_1x+a_0$,$g(x)=b_mx^m+\cdots+b_1x+b_0$，其中$a_n,b_m\neq 0$是两个本原多项式,
+    \begin{equation*}
+        h(x)=f(x)g(x)=d_{n+m}x^{n+m}+\cdots+d_1x+d_0,
+    \end{equation*}
+    其中$d_{n+m}=a_nb_m\neq 0$.如果$h(x)$不是本原多项式,则存在一个素数$p$使得$p\mid d_{n+m},\ldots,d_0$.而$f(x)$是本原的,所以$p$不能同时整除$a_n,\ldots,a_0$.假设
+    \begin{equation*}
+        p\mid a_0,a_1,\ldots,a_{i-1},\quad p\nmid a_i.
+    \end{equation*}
+    同理,$g(x)$是本原的,所以$p$不能同时整除$b_m,\ldots,b_0$.假设
+    \begin{equation*}
+        p\mid b_0,b_1,\ldots,b_{j-1},\quad p\nmid b_j.
+    \end{equation*}
+    考虑$h(x)$的系数\begin{equation*}
+        d_{i+j}=a_ib_j+a_{i+1}b_{j-1}+\cdots+a_{i-1}b_{j+1}+\cdots+a_0b_{i+j},  
+    \end{equation*}
+    其中$a_ib_j$是唯一一个不被$p$整除的项.因此,$p\nmid d_{i+j}$,与$p\mid d_{n+m},\ldots,d_0$矛盾.因此,$h(x)$是本原多项式.
+\end{proof}
+\begin{theorem}
+    如果一个非零的整系数多项式能够分解成两个次数较低的有理系数多项式的乘积,则它也能分解成两个次数较低的整系数多项式的乘积.
+\end{theorem}
+\begin{proof}
+    设整系数多项式$f(x)$有分解式
+    \begin{equation*}
+        f(x)=g(x)h(x),
+    \end{equation*}
+    其中$g(x),h(x)$是有理系数多项式.由前面的定理,存在有理数$r,s$和本原多项式$g_1(x),h_1(x)$使得
+    \begin{equation*}        
+        g(x)=rg_1(x),\quad h(x)=sh_1(x).
+    \end{equation*}
+    同时存在整数$a$和本原多项式$f_1(x)$使得$f(x)=af_1(x)$.因此,
+    \begin{equation*}
+        af_1(x)=f(x)=g(x)h(x)=(rsg_1(x))h_1(x).
+    \end{equation*}
+    从而$rs=\pm a$,说明$rs$是一个整数.上式中$rsg_1(x)$和$h_1(x)$都是整系数多项式.因此,$f(x)$可以分解成两个次数较低的整系数多项式的乘积.
+\end{proof}
+\begin{theorem}
+    设$f(x),g(x)$是整系数多项式,且$g(x)$是本原多项式.如果$f(x)=g(x)h(x)$,其中$h(x)$是有理系数多项式,则$h(x)$是整系数多项式.
+\end{theorem}
+\begin{theorem}
+    设\begin{equation*}
+        f(x)=a_nx^n+\cdots+a_1x+a_0\in\mathbb{Z}[x],\quad a_n\neq 0,
+    \end{equation*}
+    $\dfrac{r}{s}$是它的一个有理根,其中$r,s$是互素的整数.则$r\mid a_0$且$s\mid a_n$.
+\end{theorem}
+由上述定理可得$\dfrac{r}{s}$是$f(x)$有理根的一个必要条件，
+\begin{equation*}
+    r-s\mid f(1),\quad r+s\mid f(-1).
+\end{equation*}
+\begin{theorem}[Eisenstein判别法]
+    设\begin{equation*}
+        f(x)=a_nx^n+\cdots+a_1x+a_0\in\mathbb{Z}[x],\quad a_n\neq 0,
+    \end{equation*}
+    如果存在一个素数$p$使得$p\mid a_0,a_1,\ldots,a_{n-1}$,但$p\nmid a_n$,且$p^2\nmid a_0$,则$f(x)$是$\mathbb{Q}$上的不可约多项式.
+\end{theorem}
+有理数域上存在任意次数的不可约多项式.例如,对于任意$n\geq 1$,多项式
+\begin{equation*}
+    f(x)=x^n-p, 
+\end{equation*}其中$p$是一个素数,满足Eisenstein判别法的条件,因此是$\mathbb{Q}$上的不可约多项式.
